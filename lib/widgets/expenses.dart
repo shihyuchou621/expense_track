@@ -31,6 +31,7 @@ class _ExpensesState extends State<Expenses> {
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      isScrollControlled: true, // modal會填滿整個螢幕
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
@@ -39,6 +40,12 @@ class _ExpensesState extends State<Expenses> {
   void _addExpense(Expense newExpense) {
     setState(() {
       _registeredExpenses.add(newExpense);
+    });
+  }
+
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
     });
   }
 
@@ -58,7 +65,12 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text('The chart'),
           // 使用Expanded以填滿剩餘空間
-          Expanded(child: ExpensesList(expenses: _registeredExpenses)),
+          Expanded(
+            child: ExpensesList(
+              expenses: _registeredExpenses,
+              onRemoveExpense: _removeExpense,
+            ),
+          ),
         ],
       ),
     );
