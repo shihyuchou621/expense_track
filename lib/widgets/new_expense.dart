@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:expense_tracker/model/expense.dart'; // 引入expense後expense內有引用的套件(intl)也會被引入
+import 'package:expense_tracker/models/expense.dart'; // 引入expense後expense內有引用的套件(intl)也會被引入
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key, required this.onAddExpense});
