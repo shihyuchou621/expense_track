@@ -39,6 +39,7 @@ class Chart extends StatelessWidget {
         vertical: 16,
         horizontal: 8,
       ),
+      // 這個Container的寬度會填滿整個螢幕
       width: double.infinity,
       height: 180,
       decoration: BoxDecoration(
